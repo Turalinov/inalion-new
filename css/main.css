@@ -1643,7 +1643,8 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
   margin-left: 50px; }
   @media screen and (max-width: 768px) {
     .choise__elem + .choise__elem {
-      margin-left: 0; } }
+      margin-left: 0;
+      margin-top: 25px; } }
 
 .choise__elem:nth-child(1) {
   max-width: 470px; }
