@@ -1,0 +1,98 @@
+.control {
+  display: flex;
+  width: 512px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: initial;
+  }
+
+  @include phones {
+    flex-direction: column;
+    margin-bottom: initial;
+  }
+}
+
+.control__left {
+  display: flex;
+
+  @include phones {
+    order: 3;
+
+  }
+}
+
+.control__star {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+
+  @include phones {
+    display: none;
+  }
+}
+
+.control__text, .control__right {
+  @include mont(bold);
+  font-size: 20px;
+  line-height: 24px;
+
+  @include phones {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.control__dots {
+  width: 18px;
+  height: 27px;
+  margin-top: -3px;
+  margin-left: 2px;
+  background-image: url('../img/dots.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  @include phones {
+    width: 12px;
+    height: 17px;
+    background-image: url('../img/dots-m.svg');
+  }
+}
+
+.control__center {
+  @include phones {
+    order: 2;
+  }
+}
+
+.control__img {
+  width: 112px;
+  height: 112px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  @include phones {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 16px;
+  }
+}
+
+.control__img-elem {
+  //
+}
+
+.control__right {
+  @include phones {
+    order: 2;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 5px;
+
+
+  }
+}
+

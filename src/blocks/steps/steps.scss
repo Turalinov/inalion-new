@@ -1,0 +1,89 @@
+.steps {
+  padding: 50px 0 115px 0;
+
+  @include phones {
+    padding: 25px 0 65px 0;
+  }
+}
+
+.steps__title {
+  margin-bottom: 36px;
+
+  @include phones {
+    margin-bottom: 32px;
+  }
+}
+
+.steps__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -25px;
+  margin-left: -30px;
+
+  @include phones {
+    flex-direction: column;
+    margin-top: -15px;
+    margin-left: -15px;
+  }
+}
+
+.steps__item {
+  background-color: var(--clr-blue-light);
+  width: calc(100% / 4 - 30px);
+  margin-top: 25px;
+  margin-left: 30px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  @include tablets {
+    width: calc(100% / 2 - 30px);
+  }
+
+  @include phones {
+    width: calc(100% - 15px);
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 20px;
+  }
+}
+
+.steps__item--blue {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+}
+
+.steps__content {
+  flex: 1;
+}
+
+.steps__subtitle {
+  margin-bottom: 15px;
+}
+
+.steps__desc {
+  @include mont(medium);
+  font-size: 14px;
+  line-height: 18px;
+  opacity: 0.7;
+
+  @include phones {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+.steps__desc p {
+  & + p {
+    margin-top: 15px;
+  }
+}
+
+.steps__number {
+  margin-top: 15px;
+}
+
+.steps__number span {
+
+}

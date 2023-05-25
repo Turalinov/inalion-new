@@ -1,0 +1,103 @@
+.advantages {
+  @include blueSection;
+  padding: 104px 0 125px 0;
+
+  @include phones {
+    padding: 55px 0 50px;
+  }
+}
+.advantages__title {
+  margin-bottom: 86px;
+
+  @include phones {
+    margin-bottom: 40px;
+  }
+}
+
+.advantages__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: -80px;
+  margin-top: -80px;
+
+  @include phones {
+    flex-direction: column;
+    margin-left: -33px;
+    margin-top: -33px;
+  }
+}
+
+.advantages__item {
+  width: calc(100% / 3 - 80px);
+  margin-left: 80px;
+  margin-top: 80px;
+
+  display: flex;
+  flex-direction: column;
+
+
+  @include tablets {
+    width: calc(100% / 2 - 80px);
+  }
+
+  @include phones {
+    width: calc(100% - 33px);
+    margin-left: 33px;
+    margin-top: 33px;
+  }
+}
+
+.advantages__content {
+  flex: 1;
+}
+
+.advantages__subtitle {
+  @include mont(semibold);
+  font-size: 26px;
+  line-height: 32px;
+
+  min-height: 96px;
+  margin-bottom: 25px;
+
+  @include phones {
+    font-size: 20px;
+    line-height: 24px;
+    min-height: initial;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+.advantages__desc {
+  min-height: 136px;
+  font-size: 14px;
+  line-height: 17px;
+  opacity: .8;
+
+  @include phones {
+    min-height: initial;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.advantages__desc p {
+  & + p {
+    margin-top: 15px;
+  }
+}
+.advantages__number {
+  margin-top: 25px;
+  opacity: .5;
+
+  @include phones {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+}
+
+.advantages__number span {
+}

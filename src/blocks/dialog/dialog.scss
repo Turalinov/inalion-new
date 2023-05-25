@@ -1,0 +1,105 @@
+.dialog {
+  padding: 18px 22px 17px 24px;
+  background-color: var(--clr-white);
+  width: 273px;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+
+  position: relative;
+
+  &:nth-child(2n+1) {
+    align-self: flex-end;
+    z-index: 1;
+
+     @include tablets {
+      display: none;
+     }
+  }
+
+  &:nth-child(1) {
+
+    margin-bottom: 30px;
+  }
+  &:nth-child(2) {
+    margin-bottom: -30px;
+
+    @include tablets {
+      margin-bottom: 40px;
+    }
+
+    @include phones {
+      margin-bottom: 50px;
+    }
+  }
+  &:nth-child(3) {
+    margin-bottom:-30px;
+  }
+  &:nth-child(4) {
+    margin-bottom: -30px;
+
+    @include tablets {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -14px;
+    border-top: 15px solid var(--clr-white);
+    border-right: 15px solid transparent;
+    left: 43px;
+  }
+
+
+  &--out {
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+    width: 270px;
+
+    &::after {
+    border-top: 15px solid var(--clr-blue);
+    border-left: 15px solid transparent;
+    border-right: initial;
+      left:initial;
+      right: 43px;
+
+
+      @include tablets {
+        width: 0;
+        height: 0;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        border-top: 16px solid var(--clr-blue);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  + .dialog {
+    //
+  }
+}
+
+.dialog__author {
+  @include mont(bold);
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 8px;
+
+  @include phones {
+    margin-bottom: 10px;
+  }
+}
+
+.dialog__text {
+  font-size: 12px;
+  line-height: 17px;
+  margin-bottom: 8px;
+}
+
+.dialog__time {
+  opacity: 0.5;
+}

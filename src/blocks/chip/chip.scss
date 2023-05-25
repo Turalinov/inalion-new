@@ -1,0 +1,43 @@
+.chip {
+  max-width: 500px;
+
+  @include tablets {
+    max-width: 100%;
+  }
+}
+
+.chip__text {
+  border-left: 2px solid var(--clr-blue--white);
+  padding: 19px 13px 22px 29px;
+  background-color: var(--clr-white);
+  margin-bottom: 15px;
+
+  @include mont(regularItalic)
+
+
+  @include phones {
+    padding: 12px 20px 13px 18px;
+    margin-bottom: 8px;
+  }
+
+  b {
+    @include mont(semiboldItalic)
+  }
+}
+
+.chip__founder, .chip__founder-desc {
+  @include mont(semibold);
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+
+  @include phones {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+
+ .chip__founder-desc{
+  color: #AAAAAA;
+}
+

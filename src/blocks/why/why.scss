@@ -1,0 +1,115 @@
+.why {
+  padding: 75px 0;
+
+  @include phones {
+    padding: 55px 0;
+  }
+}
+
+.why__title {
+  color: var(--clr-black-light);
+  margin-bottom: 70px;
+
+  @include phones {
+    margin-bottom: 40px;
+  }
+}
+
+.why__list {
+  margin-top: -30px;
+  margin-left: -30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.why__item {
+  width: calc(100% / 3 - 30px);
+  margin-left: 30px;
+  margin-top: 30px;
+
+  display: flex;
+
+  @include tablets {
+    width: calc(100% / 2 - 30px);
+  }
+
+  @include phones {
+    width: calc(100% / 1 - 30px);
+  }
+}
+
+.why__pic {
+  margin-right: 32px;
+
+  @include phones {
+    margin-right: 20px;
+  }
+}
+
+.why__icon {
+  width: 60px;
+  height: 60px;
+
+  @include phones {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.why__icon  svg {
+  width: 60px;
+  height: 60px;
+
+  @include phones {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+.why__content {
+  //
+}
+
+.why__subtitle {
+  @include mont(semibold);
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 16px;
+
+  @include phones {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 12px;
+  }
+}
+
+.why__desc {
+  //
+}
+
+.why__link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.why__link span {
+  display: block;
+  margin-right: 15px;
+  @include mont(semibold);
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--clr-blue);
+
+  @include phones {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.why__link svg {
+  width: 25px;
+  height: 12px;
+}

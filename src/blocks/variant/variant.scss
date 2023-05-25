@@ -1,0 +1,48 @@
+.variant {
+
+}
+
+.variant__list {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  @include tablets {
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+  }
+}
+
+.variant__item {
+  padding-bottom: 16px;
+
+  & + .variant__item {
+    margin-left: 50px;
+
+    @include tablets {
+      margin-left: 24px;
+    }
+  }
+
+  &.active {
+    border-bottom: 3px solid #387EFF;
+    .variant__link {
+      opacity: 1;
+    }
+  }
+
+  // @include phones {
+  //   padding: 0 10px;
+  // }
+}
+
+.variant__link {
+  @include mont(semibold);
+  color: #000000;
+  opacity: 0.5;
+}
+
+.variant__link:hover {
+  opacity: 1;
+}

@@ -1,0 +1,22 @@
+.container {
+  margin: 0 auto;
+  height: 100%;
+  max-width: $container-width;
+  border: 1px solid red;
+  z-index: 1;
+
+  @include desktop {
+    border: 1px solid blue;
+    padding: 0px 25px;
+  }
+
+  @include tablets {
+    border: 1px solid green;
+  }
+
+  @include phones {
+    padding: 0px 21px;
+    border: 1px solid orange;
+  }
+
+}

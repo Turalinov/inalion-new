@@ -1,0 +1,61 @@
+.tasks {
+
+}
+.tasks__title {
+  @include mont(semibold);
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 16px;
+
+  @include phones {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.tasks__list {
+
+}
+.tasks__item {
+  padding-left: 23px;
+}
+
+.tasks__item {
+  font-size: 14px;
+  line-height: 20px;
+  position: relative;
+
+  @include phones {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  & + .tasks__item {
+    margin-top: 15px;
+
+    @include phones {
+      margin-top: 10px;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    left: 0;
+    top: 5px;
+    background-image: url('../img/rhombus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include phones {
+      top: 2px;
+    }
+  }
+}
+
+.tasks__item b {
+  @include mont(semibold);
+}

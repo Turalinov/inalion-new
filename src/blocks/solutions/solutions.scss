@@ -1,0 +1,28 @@
+.solutions {
+  padding: 96px 0 57px 0;
+
+  @include phones {
+    padding: 48px 0 56px 0;
+  }
+}
+.solutions__title {
+  margin-bottom: 40px;
+
+  @include phones {
+    margin-bottom: 32px;
+  }
+
+}
+.solutions__variant {
+  max-width: 625px;
+  margin-bottom: 80px;
+
+  @include phones {
+    max-width: 350px;
+    margin-bottom: 32px;
+  }
+}
+
+.solutions__choise {
+
+}

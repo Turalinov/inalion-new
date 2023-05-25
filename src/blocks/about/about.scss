@@ -1,0 +1,84 @@
+.about {
+  background-color: var(--clr-blue-light);
+  padding: 100px 0;
+
+  @include phones {
+    padding: 56px 0 64px;
+  }
+}
+
+.about__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @include tablets {
+    flex-direction: column;
+    align-items: initial;
+  }
+}
+
+.about__elem {
+  &:nth-child(2) {
+    flex: 0 1 573px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablets {
+      flex: initial;
+    }
+  }
+
+  & + .about__elem {
+    margin-left: 30px;
+
+    @include tablets {
+      margin-left: 0;
+      margin-top: 50px;
+    }
+
+    @include phones {
+      margin-top: 45px;
+    }
+  }
+}
+
+.about__title {
+  margin-bottom: 40px;
+
+  @include phones {
+    margin-bottom: 25px;
+  }
+}
+
+.about__info {
+  max-width: 468px;
+  margin-bottom: 50px;
+
+  @include tablets {
+    min-width: 100%;
+  }
+
+  p + p {
+    margin-top: 25px;
+
+    @include phones {
+      margin-top: 20px;
+    }
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.about__dialogs {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+
+  @include tablets {
+    width: initial;
+  }
+}

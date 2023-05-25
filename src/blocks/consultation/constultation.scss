@@ -1,0 +1,60 @@
+.consultation {
+  padding: 34px 0;
+  @include blueSection();
+
+  @include phones {
+    padding: 38px 0;
+  }
+}
+
+.consultation__wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include phones {
+    flex-direction: column;
+    justify-content: initial;
+
+  }
+}
+
+.consultation__content {
+  max-width: 792px;
+
+  @include phones {
+    max-width: initial;
+    margin-bottom: 24px;
+  }
+}
+
+.consultation__title {
+  margin-bottom: 12px;
+
+}
+
+.consultation__desc {
+
+}
+
+.consultation__btn-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20px;
+
+
+  @include phones {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.consultation__btn.btn {
+  width: 168px;
+
+  @include phones {
+    width: 100%;
+  }
+}

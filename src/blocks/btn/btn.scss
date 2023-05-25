@@ -1,0 +1,90 @@
+.btn {
+  @include mont(semibold);
+  display: block;
+  text-align: center;
+  color: var(--clr-blue);
+  padding: 22px;
+  border-radius: 100px;
+  transition: all .5s;
+  width: 100%;
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-blue);
+  text-transform: uppercase;
+  font-size: 14px;
+
+
+  @include phones() {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  &:hover {
+    // color: var(--clr-white);
+  }
+
+}
+
+// .btn--outline {
+//   padding: 14px;
+//   color: var(--clr-black);
+//   background-color: transparent;
+//   border: 1px solid var(--clr-black);
+
+//   @include desktop() {
+//     padding: 12px;
+//   }
+// }
+
+// .btn--social {
+//   padding: 14px;
+
+//   @include desktop {
+//     font-size: 14px;
+//   }
+
+//   &:hover {
+//     color: var(--clr-black);
+//   }
+
+//   span {
+//     display: inline-block;
+//     position: relative;
+//     margin-left: 28px;
+
+
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         width: 18px;
+//         height: 18px;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         left: -28px;
+//         background-position: center;
+//         background-repeat: no-repeat;
+//         background-size: cover;
+//       }
+
+
+//   }
+
+
+//       &-whatsapp {
+//         span {
+//         &::before {
+//           background-image: url('../img/whatsapp.svg');
+//         }
+//       }
+//       }
+
+//       &-telegram {
+//         span {
+//         &::before {
+//           background-image: url('../img/telegram.svg');
+//         }
+//       }
+//       }
+
+
+
+// }
