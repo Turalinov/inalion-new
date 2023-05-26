@@ -60,7 +60,7 @@
 
 }
 
-.choise__desc {
+.choise__elem p {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 30px;
@@ -72,11 +72,18 @@
   }
 }
 
-.choise__desc p {
-  //
+
+.choise__elem ul {
+  + p {
+    margin-top: 30px;
+
+    @include phones {
+      margin-top: 25px;
+    }
+  }
 }
 
-.choise__desc b {
+.choise__elem b {
   @include mont(semibold);
 }
 

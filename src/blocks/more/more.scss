@@ -1,0 +1,39 @@
+.more {
+
+  display: none;
+
+
+  @include phones {
+    display: block;
+    margin-top: 24px;
+
+  }
+}
+
+.more__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  &.opened  {
+    .more__img {
+      transform: translateY(5px) rotate(-180deg);
+    }
+  }
+}
+
+.more__text {
+  //
+}
+
+.more__img {
+  width: 13px ;
+  height: 7px;
+  transition: all .3s;
+}
+
+.more__img-elem {
+  //
+}
+

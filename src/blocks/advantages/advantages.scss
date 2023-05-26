@@ -1,11 +1,43 @@
 .advantages {
   @include blueSection;
   padding: 104px 0 125px 0;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+
+    @media screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
+
+  &::before {
+    left: -15px;
+    bottom: 297px;
+    width: 76px ;
+    height: 115px;
+    background-image: url('../img/blue-decor.svg');
+  }
+
+  &::after {
+    right: 0px;
+    bottom: 0px;
+    width: 96px ;
+    height: 96px;
+    background-image: url('../img/yellow-decor.svg');
+  }
 
   @include phones {
     padding: 55px 0 50px;
   }
 }
+
 .advantages__title {
   margin-bottom: 86px;
 

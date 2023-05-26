@@ -14,6 +14,12 @@
   }
 }
 
+.steps__list-wrap{
+  overflow: hidden;
+  will-change: max-height;
+  transition: max-height 0.5s;
+}
+
 .steps__list {
   display: flex;
   flex-wrap: wrap;

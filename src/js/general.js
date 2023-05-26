@@ -8,7 +8,11 @@
 // //form
 // import form from '%modules%/form/form'//
 //solutions
-import solutions from '%modules%/solutions/solutions'
+import solutions from '%modules%/solutions/solutions';
+//lottie
+import animation from '%modules%/lottie/lottie';
+//lottie
+import steps from '%modules%/steps/steps';
 
 
 
@@ -18,3 +22,5 @@ import solutions from '%modules%/solutions/solutions'
 // menu();
 // form();
 solutions();
+animation();
+steps();

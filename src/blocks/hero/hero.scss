@@ -1,139 +1,149 @@
 .hero {
-  padding-top: 80px;
+  padding: 130px 0 71px;
+  @include blueSection();
 
-
-  @include desktop {
-    padding-top: 94px;
+  @include phones {
+    padding: 75px 0 50px;
+    text-align: center;
   }
+}
 
-  & > .container {
-    padding: 0;
+.hero__wrap {
+  display: flex;
+  justify-content: space-between;
 
-    @include tablets {
-      padding: 0 30px;
-    }
+  @include phones {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
 
-    @include desktop {
-      padding: 0 50px;
+.hero__elem {
+  & + .hero__elem {
+    margin-left: 20px;
+
+    @include phones {
+      margin-left: 0;
     }
   }
 }
 
-.hero__slider-wrap {
-  position: relative;
-}
-
-
-.hero__content {
-  position: absolute;
-  z-index: 1;
-  top: 473px;
-  left: 20px;
-  right: 20px;
-  color: var(--clr-white);
-
-
-
-  @include desktop {
-    top: 50%;
-    transform: translateY(-50%);
-    left: 80px;
-    right: initial;
-
+.hero__elem:nth-child(1) {
+  @include phones {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-
-    max-width: 490px;
-
-    display: flex;
-    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 28px;
   }
 }
 
-.hero__pagination {
-  left: 20px;
-  top: 433px;
-  z-index: 1;
-  position: absolute;
 
-  .swiper-pagination-bullet  {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(5px);;
-    & + .swiper-pagination-bullet {
+.hero__location {
+  @include mont(medium);
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 47px;
+  padding-left: 33px;
+  position: relative;
+  margin-bottom: 36px;
 
-        margin-left: 10px;
+  @include phones {
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: initial;
+    margin-bottom: 16px;
+    padding-left: 20px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background-image: url('../img/location.svg');
+
+    @include phones {
+      width: 12px;
+      height: 12px;
     }
   }
-
-
-  .swiper-pagination-bullet-active {
-    background-color: var(--clr-white);
-  }
-
-  @include desktop {
-    top: initial;
-    left: 80px;
-    bottom: 72px;
-  }
 }
-
 .hero__title {
-  @media screen and (min-width: 300px) {
-    font-size: 43px;
-  }
-  @media screen and (min-width: 411px) {
-    font-size: 57px;
-  }
+  margin-bottom: 37px;
+  max-width: 498px;
 
-  margin-bottom: 20px;
-
-  @include desktop {
+  @include phones {
+    margin-bottom: 16px;
   }
 }
-
-
 .hero__desc {
-  margin-bottom: 20px;
+  max-width: 454px;
+  margin-bottom: 50px;
 
-  @include desktop {
-    margin-bottom: 30px;
+  @include phones {
+    margin-bottom: 32px;
   }
 }
-
-
 .hero__btns {
+  max-width: 481px;
   display: flex;
+  flex-direction: row;
 
-  @include desktop {
-    max-width: 440px;
+  @include phones {
+    flex-direction: column;
   }
+}
+.hero__btn {
+  width: 245px;
 
-  & a {
+  @include phones {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+.hero__tooltip {
+  margin-left: 24px;
+  opacity: 0.65;
 
-    @include desktop {
-      padding: 18px;
-    }
-    & + a {
-      margin-left: 20px;
-    }
+  @include phones {
+    margin-left: initial;
   }
 }
 
-.hero__phone {
-  border: none;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  color: var(--clr-white);
+.hero__lottie {
+  transform: scale(1.3);
+  width: 594px;
+  height: 549px;
 
-  @include desktop {
-    padding: 18px;
+  @media screen and (max-width: 1132px) {
+    margin-top: 50px;
+    width: 494px;
+    height: 449px;
   }
-  /* Note: backdrop-filter has minimal browser support */
-  &:hover {
-    color: var(--clr-white);
+
+
+  @media screen and (max-width: 1033px) {
+    margin-top: 100px;
+    width: 394px;
+    height: 349px;
+  }
+
+  @media screen and (max-width: 1033px) {
+    margin-top: 100px;
+    width: 394px;
+    height: 349px;
+  }
+
+  @include tablets {
+    margin-top: 150px;
+    width: 294px;
+    height: 249px;
+  }
+
+  @include phones {
+    width: 276px;
+    height: 255px;
   }
 }
-
