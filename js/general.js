@@ -86,6 +86,31 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/blocks/lottie/lottie.js":
+/*!*************************************!*\
+  !*** ./src/blocks/lottie/lottie.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return animation; });
+function animation() {
+  console.log('animation lottie');
+  var anim = lottie;
+  console.log(anim);
+  anim.loadAnimation({
+    container: document.querySelector('.hero__lottie'),
+    rendered: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './vendor/lottie_1.json'
+  });
+}
+
+/***/ }),
+
 /***/ "./src/blocks/solutions/solutions.js":
 /*!*******************************************!*\
   !*** ./src/blocks/solutions/solutions.js ***!
@@ -132,6 +157,97 @@ function solutions() {
 
 /***/ }),
 
+/***/ "./src/blocks/steps/steps.js":
+/*!***********************************!*\
+  !*** ./src/blocks/steps/steps.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return steps; });
+function steps() {
+  // получаем координаты элемента в контексте документа
+  function getCoords(elem) {
+    var box = elem.getBoundingClientRect();
+    return {
+      top: box.top + window.pageYOffset,
+      right: box.right + window.pageXOffset,
+      bottom: box.bottom + window.pageYOffset,
+      left: box.left + window.pageXOffset
+    };
+  }
+  function getHeightCoords(parent, child) {
+    child = parent.querySelector(".".concat(child));
+    var heightParent = parent.scrollHeight;
+    var topParent = getCoords(parent).top;
+    var topChild = getCoords(child).top;
+    var maxHeightParent = topChild - topParent;
+    parent.style.maxHeight = maxHeightParent + 'px';
+    return {
+      heightParent: heightParent,
+      maxHeightParent: maxHeightParent
+    };
+  }
+  var parents = document.querySelectorAll('.steps__list-wrap');
+  if (parents) {
+    var phonesFunction = function phonesFunction() {
+      console.log(parents);
+      parents.forEach(function (parent) {
+        var _getHeightCoords = getHeightCoords(parent, 'delimiter'),
+          heightParent = _getHeightCoords.heightParent,
+          maxHeightParent = _getHeightCoords.maxHeightParent;
+        console.log(heightParent, maxHeightParent);
+        var more = parent.nextElementSibling;
+        console.log({
+          more: more
+        });
+        var moreBtn = more.querySelector('.more__btn');
+        if (moreBtn) {
+          moreBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            parent.classList.toggle('opened');
+            if (parent.classList.contains('opened')) {
+              parent.style.maxHeight = heightParent + 'px';
+              moreBtn.classList.add('opened');
+            } else {
+              parent.style.maxHeight = maxHeightParent + 'px';
+              moreBtn.classList.remove('opened');
+            }
+          });
+        }
+      });
+    }; // брекпоинт для уничтжения swiper
+    var breakpoint = window.matchMedia('(max-width: 768px)');
+
+    //функция проверки
+    var breakpointChecker = function breakpointChecker() {
+      if (breakpoint.matches === true) {
+        console.log('тут вызываем нашу функцию');
+        /* окно просмотра имеет ширину не больше 768px пикселей */
+        phonesFunction();
+      } else {
+        console.log('а тут ее не нужно');
+        /* окно просмотра имеет ширину больше 768px пикселей */
+
+        // очищаем старые экземпляры и встроенные стили, когда они доступны
+
+        // или / и ничего не делать
+        return;
+      }
+    };
+
+    // следим за изменениями размера области просмотра
+    breakpoint.addListener(breakpointChecker);
+
+    //старт
+    breakpointChecker();
+  }
+}
+
+/***/ }),
+
 /***/ "./src/js/general.js":
 /*!***************************!*\
   !*** ./src/js/general.js ***!
@@ -142,6 +258,8 @@ function solutions() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! %modules%/solutions/solutions */ "./src/blocks/solutions/solutions.js");
+/* harmony import */ var _modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! %modules%/lottie/lottie */ "./src/blocks/lottie/lottie.js");
+/* harmony import */ var _modules_steps_steps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/steps/steps */ "./src/blocks/steps/steps.js");
 //preloader
 // import preloader from '%modules%/preloader/preloader'
 // //toggle
@@ -152,12 +270,18 @@ __webpack_require__.r(__webpack_exports__);
 // import form from '%modules%/form/form'//
 //solutions
 
+//lottie
+
+//lottie
+
 
 // preloader();
 // button();
 // menu();
 // form();
 Object(_modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_1__["default"])();
+Object(_modules_steps_steps__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
 /***/ })
 
