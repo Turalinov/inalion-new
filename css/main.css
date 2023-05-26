@@ -1326,7 +1326,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
     .advantages__list {
       flex-direction: column;
       margin-left: -33px;
-      margin-top: -33px; } }
+      margin-top: 0px; } }
 
 .advantages__item {
   width: calc(100% / 3 - 80px);
@@ -1341,7 +1341,10 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
     .advantages__item {
       width: calc(100% - 33px);
       margin-left: 33px;
-      margin-top: 33px; } }
+      margin-top: 0;
+      margin-bottom: 33px; }
+      .advantages__item:last-child() {
+        margin-bottom: 0; } }
 
 .advantages__content {
   flex: 1; }
@@ -1451,7 +1454,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
   @media screen and (max-width: 768px) {
     .steps__list {
       flex-direction: column;
-      margin-top: -15px;
+      margin-top: 0;
       margin-left: -15px; } }
 
 .steps__item {
@@ -1468,9 +1471,12 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
   @media screen and (max-width: 768px) {
     .steps__item {
       width: calc(100% - 15px);
-      margin-top: 15px;
+      margin-top: 0;
+      margin-bottom: 15px;
       margin-left: 15px;
-      padding: 20px; } }
+      padding: 20px; }
+      .steps__item:last-child() {
+        margin-bottom: 0; } }
 
 .steps__item--blue {
   background-color: var(--clr-blue);
