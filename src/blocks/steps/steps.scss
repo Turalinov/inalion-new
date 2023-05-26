@@ -28,7 +28,7 @@
 
   @include phones {
     flex-direction: column;
-    margin-top: -15px;
+    margin-top: 0;
     margin-left: -15px;
   }
 }
@@ -49,9 +49,14 @@
 
   @include phones {
     width: calc(100% - 15px);
-    margin-top: 15px;
+    margin-top: 0;
+    margin-bottom: 15px;
     margin-left: 15px;
     padding: 20px;
+
+     &:last-child() {
+      margin-bottom: 0;
+    }
   }
 }
 

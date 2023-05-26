@@ -14,28 +14,27 @@ export default function menu()
       body.classList.toggle('lock')
     })
 
+    const menuLinks = document.querySelectorAll('.menu__link');
 
-      const menuLinks = document.querySelectorAll('.menu__link');
+    menuLinks.forEach((menuLink) => {
+      menuLink.addEventListener('click', (e) => {
+        e.preventDefault();
 
-  menuLinks.forEach((menuLink) => {
-    menuLink.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      let blockId = menuLink.getAttribute('href')
-      if (blockId != "#") {
-        document.querySelector(blockId).scrollIntoView({
-          behavior: 'smooth',
-        })
-      }
-
+        let blockId = menuLink.getAttribute('href')
+        if (blockId != "#") {
+          document.querySelector(blockId).scrollIntoView({
+            behavior: 'smooth',
+          })
+        }
 
 
-      if (menu.classList.contains('menu--opened')) {
-            menu.classList.remove('menu--opened')
-            body.classList.remove('body--locked')
-      }
+
+        if (menu.classList.contains('menu--opened')) {
+              menu.classList.remove('menu--opened')
+              body.classList.remove('body--locked')
+        }
+      })
     })
-  })
 
   }
 }
