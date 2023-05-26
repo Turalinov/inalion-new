@@ -1045,6 +1045,153 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
       padding: 16px;
       font-size: 12px; } }
 
+.btn--bordered {
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid var(--clr-white);
+  color: var(--clr-white);
+  padding: 16px; }
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--clr-blue);
+  padding: 32px 0; }
+  @media screen and (max-width: 768px) {
+    .header {
+      padding: 24px 0; } }
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+
+@media screen and (max-width: 768px) {
+  .header__logo {
+    z-index: 30; } }
+
+@media screen and (max-width: 768px) {
+  .header__btns {
+    display: none; } }
+
+.header__btn {
+  width: 118px;
+  font-size: 12px; }
+
+.logo {
+  width: 123px;
+  height: 24px; }
+  @media screen and (max-width: 768px) {
+    .logo {
+      width: 100px;
+      height: 20px; } }
+
+.logo__img {
+  width: 100%;
+  height: 100%; }
+
+.menu {
+  display: flex;
+  align-items: center; }
+
+.menu--opened .menu__dropdown {
+  top: 0; }
+
+.menu--opened .menu__toggle span {
+  display: none; }
+
+.menu--opened .menu__toggle::before {
+  top: 12px;
+  transform: rotate(45deg); }
+
+.menu--opened .menu__toggle::after {
+  top: 12px;
+  width: 100%;
+  transform: rotate(-45deg); }
+
+.menu__toggle {
+  position: relative;
+  z-index: 30;
+  display: none;
+  width: 27px;
+  height: 20px;
+  font-size: 0; }
+  @media screen and (max-width: 768px) {
+    .menu__toggle {
+      display: block; } }
+  .menu__toggle::before, .menu__toggle::after,
+  .menu__toggle span {
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-white);
+    transition: all 0.8s ease; }
+  .menu__toggle span {
+    top: 50%;
+    transform: translateY(-50%);
+    left: initial;
+    right: 0;
+    width: 21px; }
+  .menu__toggle::before, .menu__toggle::after {
+    content: ""; }
+  .menu__toggle::before {
+    top: 0; }
+  .menu__toggle::after {
+    bottom: 0; }
+
+@media screen and (max-width: 768px) {
+  .menu__dropdown {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -150%;
+    height: 100%;
+    z-index: 20;
+    overflow: auto;
+    padding: 130px 47px 43px 47px;
+    background-color: var(--clr-blue);
+    transition: all 1s ease; } }
+
+.menu__list {
+  display: flex;
+  align-items: center; }
+  @media screen and (max-width: 768px) {
+    .menu__list {
+      width: 100%;
+      flex-direction: column;
+      margin-bottom: 85px; } }
+
+@media screen and (max-width: 768px) {
+  .menu__item {
+    width: 100%;
+    position: relative; } }
+
+.menu__item + .menu__item {
+  margin-left: 38px; }
+  @media screen and (max-width: 992px) {
+    .menu__item + .menu__item {
+      margin-left: 20px; } }
+  @media screen and (max-width: 768px) {
+    .menu__item + .menu__item {
+      margin-left: 0;
+      margin-top: 34px; } }
+
+.menu__link {
+  position: relative;
+  text-decoration: none;
+  font-family: 'MontserratAlternates', sans-serif;
+  font-weight: 500;
+  color: var(--clr-white); }
+  @media screen and (max-width: 768px) {
+    .menu__link {
+      font-size: 20px;
+      line-height: 24px; } }
+
 .why {
   padding: 75px 0; }
   @media screen and (max-width: 768px) {
@@ -1291,7 +1438,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
     .steps__title {
       margin-bottom: 32px; } }
 
-.steps__list-wrap {
+.delimiter-wrap {
   overflow: hidden;
   will-change: max-height;
   transition: max-height 0.5s; }
@@ -1770,7 +1917,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
   font-weight: 600; }
 
 .hero {
-  padding: 130px 0 71px;
+  padding: 118px 0 71px;
   background-color: var(--clr-blue);
   color: var(--clr-white); }
   @media screen and (max-width: 768px) {
@@ -1911,5 +2058,34 @@ input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus {
   width: 13px;
   height: 7px;
   transition: all .3s; }
+
+._anim-items {
+  transform: translate(0px, 50%);
+  opacity: 0;
+  transition: all 1s ease 0s; }
+  @media screen and (max-width: 768px) {
+    ._anim-items {
+      transform: initial;
+      opacity: initial;
+      transition: initial; } }
+  ._anim-items._active {
+    transform: translate(0px, 0px);
+    opacity: 1; }
+    @media screen and (max-width: 768px) {
+      ._anim-items._active {
+        transform: initial;
+        opacity: initial; } }
+
+.dialog:nth-child(1)._anim-items {
+  transition-delay: 0s; }
+
+.dialog:nth-child(2)._anim-items {
+  transition-delay: .5s; }
+
+.dialog:nth-child(3)._anim-items {
+  transition-delay: 1s; }
+
+.dialog:nth-child(4)._anim-items {
+  transition-delay: 1.5s; }
 
 /*# sourceMappingURL=maps/main.css.map */

@@ -86,6 +86,66 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/blocks/anim-items/anim-items.js":
+/*!*********************************************!*\
+  !*** ./src/blocks/anim-items/anim-items.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return animItems; });
+function animItems() {
+  console.log('_anim-items');
+  var animItems = document.querySelectorAll('._anim-items');
+  if (animItems.length > 0) {
+    var animOnScroll = function animOnScroll() {
+      for (var i = 0; i < animItems.length; i++) {
+        var animItem = animItems[i];
+        var animItemHeight = animItem.offsetHeight; //высота элемента 182
+        var animItemOffset = offset(animItem).top; //позиция объекта относительно вверха окна
+        var animStart = 4; // коэффициент регулирования начала анимация
+
+        var animItemPoint = window.innerHeight - animItemHeight / animStart; // 700 - 200 /4 = 750
+        if (animItemHeight > window.innerHeight) {
+          animItemPoint = window.innerHeight - window.innerHeight / animStart;
+          ; // 800 - 800 / 4 = 1000
+        }
+
+        if (pageYOffset > animItemOffset - animItemPoint && pageYOffset < animItemOffset + animItemHeight)
+          //возвращает количество пикселей, на которое прокручен документ по вертикали
+          {
+            animItem.classList.add('_active');
+          } else {
+          if (!animItem.classList.contains('_anim-no-hide')) {
+            // animItem.classList.remove('_active');
+          }
+        }
+      }
+    };
+    var offset = function offset(el) {
+      var rect = el.getBoundingClientRect(); // размер элемента и его позицию относительно  viewport
+
+      var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+      // pageXOffset - текущая прокрутка слева ,
+      // document.documentElement - html,
+      // scrollTop - сколько прокручено вверх
+      var scrollTop = window.pageXOffset || document.documentElement.scrollTop;
+      return {
+        top: rect.top + scrollTop,
+        left: rect.left + scrollLeft
+      };
+    };
+    window.addEventListener('scroll', animOnScroll);
+    setTimeout(function () {
+      animOnScroll();
+    }, 400);
+  }
+}
+
+/***/ }),
+
 /***/ "./src/blocks/lottie/lottie.js":
 /*!*************************************!*\
   !*** ./src/blocks/lottie/lottie.js ***!
@@ -107,6 +167,48 @@ function animation() {
     autoplay: true,
     path: './vendor/lottie_1.json'
   });
+}
+
+/***/ }),
+
+/***/ "./src/blocks/menu/menu.js":
+/*!*********************************!*\
+  !*** ./src/blocks/menu/menu.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return menu; });
+function menu() {
+  console.log('menu');
+  var menuToggle = document.querySelector('.menu__toggle');
+  if (menuToggle) {
+    var _menu = document.querySelector('.menu');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      _menu.classList.toggle('menu--opened');
+      body.classList.toggle('lock');
+    });
+    var menuLinks = document.querySelectorAll('.menu__link');
+    menuLinks.forEach(function (menuLink) {
+      menuLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        var blockId = menuLink.getAttribute('href');
+        if (blockId != "#") {
+          document.querySelector(blockId).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+        if (_menu.classList.contains('menu--opened')) {
+          _menu.classList.remove('menu--opened');
+          body.classList.remove('body--locked');
+        }
+      });
+    });
+  }
 }
 
 /***/ }),
@@ -190,7 +292,7 @@ function steps() {
       maxHeightParent: maxHeightParent
     };
   }
-  var parents = document.querySelectorAll('.steps__list-wrap');
+  var parents = document.querySelectorAll('.delimiter-wrap');
   if (parents) {
     var phonesFunction = function phonesFunction() {
       console.log(parents);
@@ -257,15 +359,17 @@ function steps() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! %modules%/solutions/solutions */ "./src/blocks/solutions/solutions.js");
-/* harmony import */ var _modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! %modules%/lottie/lottie */ "./src/blocks/lottie/lottie.js");
-/* harmony import */ var _modules_steps_steps__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/steps/steps */ "./src/blocks/steps/steps.js");
+/* harmony import */ var _modules_menu_menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! %modules%/menu/menu */ "./src/blocks/menu/menu.js");
+/* harmony import */ var _modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! %modules%/solutions/solutions */ "./src/blocks/solutions/solutions.js");
+/* harmony import */ var _modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/lottie/lottie */ "./src/blocks/lottie/lottie.js");
+/* harmony import */ var _modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! %modules%/steps/steps */ "./src/blocks/steps/steps.js");
+/* harmony import */ var _modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! %modules%/anim-items/anim-items */ "./src/blocks/anim-items/anim-items.js");
 //preloader
 // import preloader from '%modules%/preloader/preloader'
 // //toggle
 // import button from '%modules%/toggle/toggle'
-// //menu
-// import menu from '%modules%/menu/menu'
+//menu
+
 // //form
 // import form from '%modules%/form/form'//
 //solutions
@@ -274,14 +378,17 @@ __webpack_require__.r(__webpack_exports__);
 
 //lottie
 
+//anim-items
+
 
 // preloader();
 // button();
-// menu();
+Object(_modules_menu_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
 // form();
-Object(_modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_0__["default"])();
-Object(_modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_1__["default"])();
-Object(_modules_steps_steps__WEBPACK_IMPORTED_MODULE_2__["default"])();
+Object(_modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_1__["default"])();
+Object(_modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_2__["default"])();
+Object(_modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__["default"])();
+Object(_modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 /***/ })
 
