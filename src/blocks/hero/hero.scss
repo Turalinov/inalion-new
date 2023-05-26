@@ -143,6 +143,7 @@
   }
 
   @include phones {
+    margin-top: 0;
     width: 276px;
     height: 255px;
   }
