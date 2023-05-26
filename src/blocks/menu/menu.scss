@@ -1,166 +1,138 @@
 .menu {
-  & > ul {
-    @include desktop() {
-      display: flex;
-      flex-direction: row;
+  display: flex;
+  align-items: center;
+
+}
+
+.menu--opened {
+  & .menu__dropdown {
+    top: 0;
+  }
+
+  & .menu__toggle {
+
+    & span {
+      display: none;
     }
 
-      & > li {
-      border-top: 1px solid #EDEDED;
-
-      @include desktop() {
-        border-top: none;
-
-        &:first-child {
-          & > a {
-            position: relative;
-            padding-left: 44px;
-            &::before {
-              content: '';
-              display: block;
-              position: absolute;
-              left: 0;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 28px;
-              height: 4px;
-              background-image: url('../img/dots.svg');
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: contain;
-            }
-          }
-        }
-
-
-        & + li {
-          margin-left: 40px;
-        }
-      }
-
-      & > a {
-          font-size: 20px;
-          display: block;
-          line-height: 24px;
-          letter-spacing: -0.04em;
-          padding: 20px 0;
-
-          @include desktop {
-            font-size: 16px;
-            padding:  0;
-
-          }
-
-
-
-      }
+    &::before {
+      top: 12px;
+      transform: rotate(45deg);
     }
+
+    &::after {
+      top: 12px;
+      width: 100%;
+      transform: rotate(-45deg);
+    }
+
+  }
+}
+
+.menu__toggle {
+  position: relative;
+  z-index: $z-index-menu-toggle;
+  display: none;
+  width: 27px;
+  height: 20px;
+  font-size: 0;
+
+  @include phones {
+    display: block;
+  }
+
+  &::before,
+  &::after,
+  & span {
+    position: absolute;
+    left: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-white);
+    transition: all 0.8s ease;
+  }
+
+  & span {
+    top: 50%;
+    transform: translateY(-50%);
+    left: initial;
+    right: 0;
+    width: 21px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
   }
 
 
+}
 
+.menu__dropdown {
+  @include phones {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -150%;
+    height: 100%;
+    z-index: $z-index-menu-dropdown;
+    overflow: auto;
+    padding: 130px 47px 43px 47px;
+    background-color: var(--clr-blue);
+    transition: all 1s ease;
+  }
+}
+
+.menu__list {
+  display: flex;
+  align-items: center;
+
+  @include phones() {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 85px;
+  }
 }
 
 .menu__item {
-
-}
-
-.menu__submenu {
-  @include desktop {
-    position: absolute;
-    right: 0;
-    top: 60px;
-    max-height: 0;
-    opacity: 0;
-    padding: 0;
-    will-change: max-height;
-    transition: all .5s ease-in-out;
-    box-sizing: content-box;
-    background-color: var(--clr-white);
-    max-width: 960px;
+  @include phones {
     width: 100%;
-    border-radius: 0px 0px 0px 12px;
-    box-shadow: 4px 4px 4px rgba(239, 239, 239, 0.15);
-    pointer-events: none;
+    position: relative;
   }
 }
 
-.menu__submenu.active {
-  @include desktop {
-    opacity: 1;
-    pointer-events: initial;
+.menu__item + .menu__item {
+  margin-left: 38px;
+
+  @include tablets {
+    margin-left: 20px;
+  }
+
+  @include phones {
+    margin-left: 0;
+    margin-top: 34px;
   }
 }
 
-.menu__submenu-wrap {
-  @include desktop {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 87px 50px 60px;
-  }
+.menu__link {
+  position: relative;
+  text-decoration: none;
+  @include mont(medium);
+  color: var(--clr-white);
 
-  .sub-menu {
-    column-count: 2;
-    column-gap: 20px;
-    padding: 20px 0 40px;
-    max-width: 100%;
-
-    @include desktop {
-      column-gap: 100px;
-      padding: 0;
-      max-width: 512px;
-    }
-
-    & > li:not(:last-child) {
-      margin-bottom: 20px;
-
-      @include desktop() {
-        margin-bottom: 15px;
-      }
-    }
-
-    .menu__item {
-      & a {
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    .current-menu-item {
-      & a {
-        text-decoration: underline;
-      }
-    }
-
-  }
-}
-
-.menu__submenu-img {
-  display: none;
-
-  @include desktop {
-    display: block;
-    width: 220px;
-    height: 220px;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-}
-
-.menu__submenu-img-elem {
-
-}
-
-.menu__submenu-close {
-  display: none;
-
-  @include desktop() {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 55px;
-    height: 55px;
+  @include phones {
+    font-size: 20px;
+    line-height: 24px;
   }
 }

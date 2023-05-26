@@ -1,135 +1,40 @@
 .header {
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  padding: 17px 0;
-  background-color: var(--clr-white);
-  z-index: $z-index-header;
+  right: 0;
+  z-index: $z-index-menu-header;
+  background-color: var(--clr-blue);
+  padding: 32px 0;
 
-  @include desktop() {
-    padding: 33px 0;
+  @include phones {
+    padding: 24px 0;
   }
 
-  &::before {
-    content: '';
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 80px;
-    background-color: var(--clr-white);
-    z-index: $z-index-header;
-
-    @include desktop() {
-      display: none;
-    }
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  &.active {
-    & .header__toggle.toggle {
-      width: 45px;
-      height: 45px;
-      border: 1px solid #EDEDED;
-      border-radius: 50%;
-
-      & .toggle__inner {
-        display: none;
-      }
-
-      &::before,
-      &::after {
-        width: 20px;
-        top: 50%;
-        left: 50%;
-        transition: all 0.3s;
-      }
-
-      &::before {
-        transform: translate(-50%, -50%) rotate(45deg)
-      }
-
-      &::after {
-        transform: translate(-50%, -50%) rotate(-45deg)
-      }
-    }
-
-
-    .header__dropdown {
-      top: 0;
-      transition: all 0.5s;
-    }
-  }
-}
-
-.header__wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
 }
 
 .header__logo {
-  z-index: $z-index-logo;
-}
-
-.header__dropdown {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  padding-top: 130px;
-  padding-bottom: 65px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: var(--clr-white);
-  top: -150%;
-  transition: all 0.5s;
-  z-index: $z-index-dropdown;
-  overflow: auto;
-  height: 100%;
-
-  @include desktop {
-    position: static;
-    padding: 0;
-    background-color: transparent;
-    overflow: initial;
-    height: initial;
-    width: initial;
-    margin-left: 100px;
+  @include phones {
+    z-index: $z-index-logo;
   }
-
 }
 
 .header__menu {
 
 }
 
-.header__links {
-  position: relative;
-  z-index: $z-index-header-links;
-
-  @include tablets {
-    display: flex;
-  }
-}
-
-
-.header__links .links__record {
-  display: none;
-
-  @include tablets {
-    display: block;
-  }
-}
-
-.header__links .links__phone {
-  display: block;
-}
-
-.header__toggle {
-  z-index: $z-index-toggle;
-
-  @include desktop() {
+.header__btns {
+  @include phones {
     display: none;
   }
+
+}
+
+.header__btn {
+  width: 118px;
+  font-size: 12px;
 }

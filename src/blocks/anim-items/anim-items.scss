@@ -1,0 +1,42 @@
+._anim-items {
+  transform: translate(0px, 50%);
+  opacity: 0;
+  transition: all 1s ease 0s;
+
+  @include phones {
+    transform: initial;
+    opacity: initial;
+    transition: initial;
+  }
+
+  &._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+
+    @include phones {
+      transform: initial;
+      opacity: initial;
+    }
+  }
+}
+
+.dialog:nth-child(1) {
+  &._anim-items {
+    transition-delay: 0s;
+  }
+}
+.dialog:nth-child(2) {
+  &._anim-items {
+    transition-delay: .5s;
+  }
+}
+.dialog:nth-child(3) {
+  &._anim-items {
+    transition-delay: 1s;
+  }
+}
+.dialog:nth-child(4) {
+  &._anim-items {
+    transition-delay: 1.5s;
+  }
+}

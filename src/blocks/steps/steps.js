@@ -29,7 +29,7 @@ export default function steps() {
   }
 
 
-  const parents = document.querySelectorAll('.steps__list-wrap');
+  const parents = document.querySelectorAll('.delimiter-wrap');
 
   if(parents) {
 
@@ -90,8 +90,6 @@ export default function steps() {
          /* окно просмотра имеет ширину больше 768px пикселей */
 
         // очищаем старые экземпляры и встроенные стили, когда они доступны
-
-
 
         // или / и ничего не делать
         return;

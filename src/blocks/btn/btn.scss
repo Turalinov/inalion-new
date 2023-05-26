@@ -24,6 +24,14 @@
 
 }
 
+.btn--bordered {
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid var(--clr-white);
+  color: var(--clr-white);
+  padding: 16px;
+}
+
 // .btn--outline {
 //   padding: 14px;
 //   color: var(--clr-black);

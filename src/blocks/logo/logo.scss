@@ -1,24 +1,16 @@
-.logo {
+  .logo {
+    width: 123px;
+    height: 24px;
 
-}
-
-.logo__link {
-  display: block;
-  width: 100px;
-  height: 20px;
-
-  @include desktop {
-    width: 140px;
-    height: 28px;
+    @include phones {
+      width: 100px;
+      height: 20px;
+    }
   }
-}
 
-.logo__img {
-  width: 100px;
-  height: 20px;
+  .logo__img {
+    width: 100%;
+    height: 100%;
 
-  @include desktop {
-    width: 140px;
-    height: 28px;
+
   }
-}

@@ -6,8 +6,12 @@ $container-width: 1170px; // по 135 по краям
 
 //z-indexes
 
+$z-index-menu-header: 10;
+$z-index-menu-toggle: 30;
+$z-index-menu-dropdown: 20;
+$z-index-logo: 30;
+
 // $z-index-preloader: 80;
-// $z-index-logo: 100;
 // $z-index-toggle: 100;
 // $z-index-header-links: 100;
 // $z-index-header: 90;
