@@ -215,6 +215,82 @@ function animItems() {
 
 /***/ }),
 
+/***/ "./src/blocks/case-slider/case-slider.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/case-slider/case-slider.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return caseSlider; });
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
+
+function caseSlider() {
+  document.querySelectorAll('.case-slider').forEach(function (item) {
+    var caseSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"](item, {
+      // Optional parameters
+      // loop: false,
+      // grabCursor: true,
+      allowTouchMove: false,
+      // spaceBetween: 34,
+      // autoHeight: true,
+      // slidesPerView: 3, //сколкько видны
+      // slidesPerView: 'auto',
+      // centeredSlides: true,
+      // If we need pagination
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true
+      // },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: item.querySelector('.case-slider-button-next'),
+        prevEl: item.querySelector('.case-slider-button-prev')
+      },
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   type: "fraction",
+      //   formatFractionCurrent: addZero,
+      //   formatFractionTotal: addZero
+      // },
+
+      // And if we need scrollbar
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1
+          // spaceBetween: 34
+        },
+
+        // when window width is >= 768
+        // 768: {
+        //   slidesPerView: 3,
+        //   spaceBetween: 34
+        // },
+        // when window width is >= 480px
+        992: {
+          // slidesPerView: 3,
+          // spaceBetween: 34
+        }
+        // // when window width is >= 640px
+        // 1200: {
+        //   // slidesPerView: 2,
+        //   // spaceBetween: 20
+        // }
+      }
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./src/blocks/lottie/lottie.js":
 /*!*************************************!*\
   !*** ./src/blocks/lottie/lottie.js ***!
@@ -231,6 +307,13 @@ function animation() {
   console.log(anim);
   anim.loadAnimation({
     container: document.querySelector('.hero__lottie'),
+    rendered: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './vendor/lottie_1.json'
+  });
+  anim.loadAnimation({
+    container: document.querySelector('.modal__lottie'),
     rendered: 'svg',
     loop: true,
     autoplay: true,
@@ -278,6 +361,50 @@ function menu() {
       });
     });
   }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/modal/modal.js":
+/*!***********************************!*\
+  !*** ./src/blocks/modal/modal.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return modal; });
+function modal() {
+  // закрыть все модалки
+  var modals = document.querySelectorAll('.modal');
+  var body = document.querySelector('body');
+  function closeAllModals() {
+    modals.forEach(function (modal) {
+      modal.classList.remove('active');
+      body.classList.remove('lock');
+    });
+  }
+  var btnRecords = document.querySelectorAll('.js-btn-record');
+  if (btnRecords && btnRecords.length > 0) {
+    var _modal = document.querySelector('.modal#modal-record');
+    btnRecords.forEach(function (btnRecord) {
+      btnRecord.addEventListener('click', function (e) {
+        console.log(e);
+        e.preventDefault();
+        _modal.classList.add('active');
+        body.classList.add('lock');
+      });
+    });
+  }
+  var close = document.querySelectorAll('.modal__close');
+  close.forEach(function (cl) {
+    cl.addEventListener('click', function (e) {
+      var modal = e.currentTarget.closest('.modal');
+      modal.classList.remove('active');
+      body.classList.remove('lock');
+    });
+  });
 }
 
 /***/ }),
@@ -390,6 +517,113 @@ function price() {
       });
     });
   }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/projects-slider/projects-slider.js":
+/*!*******************************************************!*\
+  !*** ./src/blocks/projects-slider/projects-slider.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return projectsSlider; });
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
+
+function projectsSlider() {
+  var reviewsSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.projects-slider', {
+    // Optional parameters
+    // loop: false,
+    // grabCursor: true,
+    spaceBetween: 34,
+    autoHeight: true,
+    allowTouchMove: false,
+    // slidesPerView: 3, //сколкько видны
+    // slidesPerView: 'auto',
+    // centeredSlides: true,
+    // If we need pagination
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //   clickable: true
+    // },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+      formatFractionCurrent: addZero,
+      formatFractionTotal: addZero
+    },
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 34
+      },
+      // when window width is >= 768
+      // 768: {
+      //   slidesPerView: 3,
+      //   spaceBetween: 34
+      // },
+      // when window width is >= 480px
+      992: {
+        // slidesPerView: 3,
+        // spaceBetween: 34
+      }
+      // // when window width is >= 640px
+      // 1200: {
+      //   // slidesPerView: 2,
+      //   // spaceBetween: 20
+      // }
+    }
+  });
+
+  function addZero(num) {
+    return num > 9 ? num : '0' + num;
+  }
+  var revTitleContainer = document.querySelector('.projects__title-wrap');
+  var revSliderContainer = document.querySelector('.projects-slider');
+  var targetBtns = document.querySelector('.projects-slider-btns');
+
+  // брекпоинт для уничтжения swiper
+  var breakpoint = window.matchMedia('(max-width: 768px)');
+
+  //функция проверки
+  var breakpointChecker = function breakpointChecker() {
+    if (breakpoint.matches === true) {
+      console.log('тут вызываем нашу функцию');
+      /* окно просмотра имеет ширину не больше 768px пикселей */
+
+      revSliderContainer.appendChild(targetBtns);
+    } else {
+      console.log('а тут ее не нужно');
+      /* окно просмотра имеет ширину больше 768px пикселей */
+
+      revTitleContainer.appendChild(targetBtns);
+      // очищаем старые экземпляры и встроенные стили, когда они доступны
+
+      // или / и ничего не делать
+      return;
+    }
+  };
+
+  // следим за изменениями размера области просмотра
+  breakpoint.addListener(breakpointChecker);
+
+  //старт
+  breakpointChecker();
 }
 
 /***/ }),
@@ -654,6 +888,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! %modules%/anim-items/anim-items */ "./src/blocks/anim-items/anim-items.js");
 /* harmony import */ var _modules_price_price__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! %modules%/price/price */ "./src/blocks/price/price.js");
 /* harmony import */ var _modules_reviews_slider_reviews_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! %modules%/reviews-slider/reviews-slider */ "./src/blocks/reviews-slider/reviews-slider.js");
+/* harmony import */ var _modules_projects_slider_projects_slider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! %modules%/projects-slider/projects-slider */ "./src/blocks/projects-slider/projects-slider.js");
+/* harmony import */ var _modules_case_slider_case_slider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! %modules%/case-slider/case-slider */ "./src/blocks/case-slider/case-slider.js");
+/* harmony import */ var _modules_modal_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! %modules%/modal/modal */ "./src/blocks/modal/modal.js");
 //menu
 
 // //form
@@ -670,6 +907,12 @@ __webpack_require__.r(__webpack_exports__);
 
 //reviews-slider
 
+//projects-slider
+
+//case-slider
+
+//modal
+
 
 // form();
 Object(_modules_menu_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
@@ -679,6 +922,9 @@ Object(_modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__["default"])();
 Object(_modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__["default"])();
 Object(_modules_price_price__WEBPACK_IMPORTED_MODULE_5__["default"])();
 Object(_modules_reviews_slider_reviews_slider__WEBPACK_IMPORTED_MODULE_6__["default"])();
+Object(_modules_projects_slider_projects_slider__WEBPACK_IMPORTED_MODULE_7__["default"])();
+Object(_modules_case_slider_case_slider__WEBPACK_IMPORTED_MODULE_8__["default"])();
+Object(_modules_modal_modal__WEBPACK_IMPORTED_MODULE_9__["default"])();
 
 /***/ })
 
