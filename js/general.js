@@ -394,6 +394,112 @@ function price() {
 
 /***/ }),
 
+/***/ "./src/blocks/reviews-slider/reviews-slider.js":
+/*!*****************************************************!*\
+  !*** ./src/blocks/reviews-slider/reviews-slider.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return reviewsSlider; });
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
+
+function reviewsSlider() {
+  var reviewsSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.reviews-slider', {
+    // Optional parameters
+    // loop: false,
+    grabCursor: true,
+    spaceBetween: 34,
+    autoHeight: true,
+    // slidesPerView: 3, //сколкько видны
+    // slidesPerView: 'auto',
+    // centeredSlides: true,
+    // If we need pagination
+    // pagination: {
+    //   el: '.swiper-pagination',
+    //   clickable: true
+    // },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+      formatFractionCurrent: addZero,
+      formatFractionTotal: addZero
+    },
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 34
+      },
+      // when window width is >= 768
+      // 768: {
+      //   slidesPerView: 3,
+      //   spaceBetween: 34
+      // },
+      // when window width is >= 480px
+      992: {
+        // slidesPerView: 3,
+        // spaceBetween: 34
+      }
+      // // when window width is >= 640px
+      // 1200: {
+      //   // slidesPerView: 2,
+      //   // spaceBetween: 20
+      // }
+    }
+  });
+
+  function addZero(num) {
+    return num > 9 ? num : '0' + num;
+  }
+  var revTitleContainer = document.querySelector('.reviews__title-wrap');
+  var revSliderContainer = document.querySelector('.reviews-slider');
+  var targetBtns = document.querySelector('.reviews-slider-btns');
+
+  // брекпоинт для уничтжения swiper
+  var breakpoint = window.matchMedia('(max-width: 768px)');
+
+  //функция проверки
+  var breakpointChecker = function breakpointChecker() {
+    if (breakpoint.matches === true) {
+      console.log('тут вызываем нашу функцию');
+      /* окно просмотра имеет ширину не больше 768px пикселей */
+
+      revSliderContainer.appendChild(targetBtns);
+    } else {
+      console.log('а тут ее не нужно');
+      /* окно просмотра имеет ширину больше 768px пикселей */
+
+      revTitleContainer.appendChild(targetBtns);
+      // очищаем старые экземпляры и встроенные стили, когда они доступны
+
+      // или / и ничего не делать
+      return;
+    }
+  };
+
+  // следим за изменениями размера области просмотра
+  breakpoint.addListener(breakpointChecker);
+
+  //старт
+  breakpointChecker();
+}
+
+/***/ }),
+
 /***/ "./src/blocks/solutions/solutions.js":
 /*!*******************************************!*\
   !*** ./src/blocks/solutions/solutions.js ***!
@@ -547,6 +653,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! %modules%/steps/steps */ "./src/blocks/steps/steps.js");
 /* harmony import */ var _modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! %modules%/anim-items/anim-items */ "./src/blocks/anim-items/anim-items.js");
 /* harmony import */ var _modules_price_price__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! %modules%/price/price */ "./src/blocks/price/price.js");
+/* harmony import */ var _modules_reviews_slider_reviews_slider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! %modules%/reviews-slider/reviews-slider */ "./src/blocks/reviews-slider/reviews-slider.js");
 //menu
 
 // //form
@@ -561,6 +668,8 @@ __webpack_require__.r(__webpack_exports__);
 
 //price
 
+//reviews-slider
+
 
 // form();
 Object(_modules_menu_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
@@ -569,6 +678,7 @@ Object(_modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_2__["default"])();
 Object(_modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__["default"])();
 Object(_modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__["default"])();
 Object(_modules_price_price__WEBPACK_IMPORTED_MODULE_5__["default"])();
+Object(_modules_reviews_slider_reviews_slider__WEBPACK_IMPORTED_MODULE_6__["default"])();
 
 /***/ })
 
