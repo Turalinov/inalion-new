@@ -15,4 +15,17 @@ export default function animation() {
     autoplay: true,
     path: './vendor/lottie_1.json',
   })
+
+
+    anim.loadAnimation({
+    container: document.querySelector('.modal__lottie'),
+    rendered: 'svg',
+    loop: true,
+    autoplay: true,
+    path: './vendor/lottie_1.json',
+  })
+
+
+
+
 }

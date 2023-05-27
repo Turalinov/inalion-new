@@ -1,0 +1,54 @@
+.mark {
+  padding: 25px 30px;
+  background-color: var(--clr-blue);
+  display: flex;
+  color: var(--clr-white);
+  max-width: 500px;
+  @include mont(medium);
+
+
+  @include tablets {
+    max-width: initial;
+  }
+
+  @include phones {
+    padding: 23px 43px 23px 26px;
+    flex-direction: column;
+  }
+}
+
+.mark__item {
+  & + .mark__item {
+    margin-left: 37px;
+
+    @include phones {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+  }
+
+  @include phones {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.mark__number {
+  font-size: 28px;
+  line-height: 34px;
+  margin-bottom: 12px;
+
+  @include phones {
+    flex: 1 1 50%;
+    margin-bottom: 0;
+  }
+}
+
+.mark__text {
+  font-size: 14px;
+  line-height: 15px;
+
+  @include phones {
+    flex: 1 1 50%;
+  }
+}

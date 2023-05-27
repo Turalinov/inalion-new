@@ -1,0 +1,30 @@
+
+  .projects-slider {
+    // overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+
+.projects-slider-btns {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 210px;
+  height: 60px;
+  position: relative;
+  z-index: 1;
+
+  @include phones {
+    margin: 30px auto 0;
+  }
+}
+
+.projects-slider .swiper-wrapper {
+  box-sizing: border-box;
+}
+
+
+
+

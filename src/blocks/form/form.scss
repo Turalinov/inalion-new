@@ -1,73 +1,99 @@
 .form {
+  color: var(--clr-black);
+}
+
+
+.form__title {
+  text-align: center;
+  @include mont(bold);
+  font-size: 30px;
+  line-height: 37px;
+  margin-bottom: 40px;
+}
+
+.form__elem {
 
 }
+
 
 .form__row {
   display: flex;
   flex-direction: column;
+  position: relative;
 
-  @include desktop() {
-    flex-direction: row;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../img/user.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 1;
   }
+
+  &:nth-child(3) {
+
+  }
+
+  &:nth-child(4) {
+    &::before {
+      background-image: url('../img/port.svg');
+    }
+  }
+
+  &:nth-child(5) {
+    &::before {
+      background-image: url('../img/tel.svg');
+    }
+  }
+
+  &:nth-child(6){
+    &::before {
+      background-image: url('../img/email.svg');
+    }
+
+    & input {
+      border-bottom: 2px solid #01A6FF;
+    }
+  }
+
+
 
   & + .form__row {
-    margin-top: 15px;
-    @include desktop() {
-      margin-top: 20px;
-    }
+    margin-top: 8px;
   }
 }
 
-.form__block {
-  box-sizing: border-box;
-  flex: 1;
+.form input{
+  border: none;
+  border-bottom: 2px solid #DDDDDD;
+  padding-left: 29px;
+  padding-bottom: 17px;
+  padding-top: 17px;
+  position: relative;
 
-  & + .form__block {
-    margin-top: 15px;
-
-    @include desktop() {
-      margin-top: initial;
-      margin-left: 20px;
-    }
+   &::placeholder {
+    color: var(--clr-black);
+    opacity: 0.3
   }
-}
 
-.form__input {
-  &.error {
-    border-color: var(--clr-orange);
-  }
-}
 
-.form__message {
-  font-size: 16px;
-  font-weight: 700;
-  margin-top: 5px;
 }
 
 
-.form__input-error {
-    font-size: 14px;
-    color: red;
-    margin: 0 5px;
-}
 
 .form__btn {
-  padding: 17px;
+  margin-top: 64px;
+  padding: 24px;
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
 
   @include desktop {
     padding: 23px;
-  }
-}
-
-.form__politics {
-  color: #4E4E4E;
-  font-size: 14px;
-
-  @include desktop() {
-    font-size: 15px;
-  }
-
-  a {
-    text-decoration: underline;
   }
 }

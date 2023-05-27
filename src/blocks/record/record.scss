@@ -1,0 +1,23 @@
+.record {
+  background-color: var(--clr-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.record__elem {
+  width: 50%;
+
+  @include phones {
+    width: 100%;
+  }
+
+  & + .record__elem {
+    @include phones {
+      display: none;
+    }
+  }
+}
+.record__form {
+  background-color: var(--clr-white);
+  padding: 41px 70px 41px 58px;
+}

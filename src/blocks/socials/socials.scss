@@ -1,19 +1,31 @@
 
-.socials {
+
+.socials{
   display: flex;
+  align-items: center;
 }
 
 .socials__item {
-  & + .socials__item {
-      margin-left:  10px;
+  opacity: 0.9;
+  transition: .3s;
+
+  &:hover {
+    opacity: 1;
   }
 }
 
+.socials__item + .socials__item{
+  margin-left: 10px;
+}
+
 .socials__link {
-  //
+  display: block;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
 }
 
 .socials__icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }

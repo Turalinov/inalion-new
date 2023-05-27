@@ -1,0 +1,18 @@
+.projects {
+  padding: 95px 0 110px;
+
+  @include phones {
+    padding: 72px 0 56px;
+  }
+
+ .container {
+
+    overflow: hidden;
+  }
+}
+
+.projects__title-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
