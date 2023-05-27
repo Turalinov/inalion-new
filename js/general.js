@@ -1,6 +1,66 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"main": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -79,9 +139,18 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "/";
 /******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/general.js");
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./src/js/general.js","vendor"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -204,7 +273,119 @@ function menu() {
         }
         if (_menu.classList.contains('menu--opened')) {
           _menu.classList.remove('menu--opened');
-          body.classList.remove('body--locked');
+          body.classList.remove('lock');
+        }
+      });
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./src/blocks/price/price.js":
+/*!***********************************!*\
+  !*** ./src/blocks/price/price.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return price; });
+/* harmony import */ var swiper_bundle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper/bundle */ "./node_modules/swiper/swiper-bundle.esm.js");
+
+function price() {
+  console.log('price');
+  var tarifSwiper;
+  var price = document.querySelector('.price');
+  var variants = price.querySelectorAll('.variant__item');
+  if (variants) {
+    var deleteActiveClassVariants = function deleteActiveClassVariants() {
+      variants.forEach(function (variant) {
+        variant.classList.remove('active');
+      });
+    };
+    var setActiveClassVariant = function setActiveClassVariant(id) {
+      variants[id].classList.add('active');
+    };
+    var deleteActiveClassChoises = function deleteActiveClassChoises() {
+      choises.forEach(function (choise) {
+        choise.classList.remove('active');
+      });
+    };
+    var setActiveClassChoise = function setActiveClassChoise(id) {
+      choises[id].classList.add('active');
+    };
+    var enableSwiper = function enableSwiper() {
+      //swiper
+
+      tarifSwiper = new swiper_bundle__WEBPACK_IMPORTED_MODULE_0__["default"]('.tarif-slider', {
+        // Optional parameters
+        // loop: false,
+        grabCursor: true,
+        // spaceBetween: 20,
+        autoHeight: true,
+        slidesPerView: 3,
+        //сколкько видны
+        // slidesPerView: 'auto',
+        // centeredSlides: true,
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        // Navigation arrows
+        // navigation: {
+        //   nextEl: '.tarif-slider-button-next',
+        //   prevEl: '.tarif-slider-button-prev',
+        // },
+
+        // And if we need scrollbar
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        // },
+
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 34
+          },
+          // when window width is >= 768
+          // 768: {
+          //   slidesPerView: 3,
+          //   spaceBetween: 34
+          // },
+          // when window width is >= 480px
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 34
+          }
+          // // when window width is >= 640px
+          // 1200: {
+          //   // slidesPerView: 2,
+          //   // spaceBetween: 20
+          // }
+        }
+      });
+    };
+
+    enableSwiper();
+    var choises = price.querySelectorAll('.tarif__item');
+    variants.forEach(function (variant, index) {
+      var link = variant.querySelector('.variant__link');
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        deleteActiveClassVariants();
+        setActiveClassVariant(index);
+        deleteActiveClassChoises();
+        setActiveClassChoise(index);
+        if (tarifSwiper !== undefined) {
+          console.log();
+          tarifSwiper.forEach(function (sw) {
+            sw.destroy(true, true);
+          });
+          enableSwiper();
         }
       });
     });
@@ -225,7 +406,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return solutions; });
 function solutions() {
   console.log('solutions');
-  var variants = document.querySelectorAll('.variant__item');
+  var solutions = document.querySelector('.solutions');
+  var variants = solutions.querySelectorAll('.variant__item');
   if (variants) {
     var deleteActiveClassVariants = function deleteActiveClassVariants() {
       variants.forEach(function (variant) {
@@ -243,7 +425,7 @@ function solutions() {
     var setActiveClassChoise = function setActiveClassChoise(id) {
       choises[id].classList.add('active');
     };
-    var choises = document.querySelectorAll('.choise__item');
+    var choises = solutions.querySelectorAll('.choise__item');
     variants.forEach(function (variant, index) {
       var link = variant.querySelector('.variant__link');
       link.addEventListener('click', function (e) {
@@ -364,14 +546,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! %modules%/lottie/lottie */ "./src/blocks/lottie/lottie.js");
 /* harmony import */ var _modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! %modules%/steps/steps */ "./src/blocks/steps/steps.js");
 /* harmony import */ var _modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! %modules%/anim-items/anim-items */ "./src/blocks/anim-items/anim-items.js");
-//preloader
-// import preloader from '%modules%/preloader/preloader'
-// //toggle
-// import button from '%modules%/toggle/toggle'
+/* harmony import */ var _modules_price_price__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! %modules%/price/price */ "./src/blocks/price/price.js");
 //menu
 
 // //form
-// import form from '%modules%/form/form'//
+// import form from '%modules%/form/form'
 //solutions
 
 //lottie
@@ -380,15 +559,16 @@ __webpack_require__.r(__webpack_exports__);
 
 //anim-items
 
+//price
 
-// preloader();
-// button();
-Object(_modules_menu_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
 // form();
+Object(_modules_menu_menu__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_modules_solutions_solutions__WEBPACK_IMPORTED_MODULE_1__["default"])();
 Object(_modules_lottie_lottie__WEBPACK_IMPORTED_MODULE_2__["default"])();
 Object(_modules_steps_steps__WEBPACK_IMPORTED_MODULE_3__["default"])();
 Object(_modules_anim_items_anim_items__WEBPACK_IMPORTED_MODULE_4__["default"])();
+Object(_modules_price_price__WEBPACK_IMPORTED_MODULE_5__["default"])();
 
 /***/ })
 
