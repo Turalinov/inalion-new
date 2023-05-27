@@ -1,0 +1,56 @@
+  .tarif-slider {
+    overflow: initial;
+    width: 100%;
+    // height: 374px;
+    position: relative;
+
+
+  }
+
+
+  .tarif-slider .swiper-wrapper {
+    box-sizing: border-box;
+  }
+
+
+  .tarif-slider .swiper-slide {
+    // max-width:
+    // overflow: hidden;
+
+  }
+
+.tarif-slider-pagination {
+  opacity: 0;
+
+  @include phones {
+    opacity: 1;
+  }
+}
+
+
+  .tarif-slider .swiper-pagination {
+    opacity: 0;
+    bottom: -48px;
+
+    @include phones {
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+
+      background: #FFFFFF;
+      opacity: 0.4;
+
+      &.swiper-pagination-bullet-active  {
+        opacity: 1;
+      }
+    }
+
+
+
+
+
+  }
+

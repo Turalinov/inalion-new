@@ -1,0 +1,50 @@
+.price {
+  background-color: var(--clr-blue);
+  color: var(--clr-white);
+  padding: 77px 0 110px;
+
+  @include phones {
+    padding: 56px 0 37px;
+  }
+}
+
+.price__title {
+  text-align: center;
+  margin-bottom: 40px;
+
+  @include phones {
+    text-align: left;
+  }
+}
+
+.price__variant {
+  max-width: 373px;
+  margin: 0 auto 81px;
+
+  @include phones {
+    margin-bottom: 50px;
+  }
+
+  .variant__list {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+  }
+
+  .variant__item {
+
+  }
+
+  .variant__item + .variant__item {
+    margin-left: 30px;
+  }
+
+  .variant__link{
+    color: var(--clr-white);
+  }
+
+}
+
+.price__tarif {
+  max-width: 968px;
+  margin: 0 auto;
+}

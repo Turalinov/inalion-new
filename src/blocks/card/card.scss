@@ -1,0 +1,136 @@
+.card {
+}
+.card--unique {
+
+  .card__wrap {
+    position: relative;
+
+    &::before {
+      @include mont(semibold);
+      content: 'Бестселлер';
+      position: absolute;
+      top: -34px;
+      width: 100%;
+      padding: 7px 20px;
+      background-color: var(--clr-white);
+      color: var(--clr-blue--white);
+      text-align: center;
+      z-index: 1;
+    }
+  }
+
+  .card__info {
+    color: var(--clr-blue--white);
+    background: var(--clr-white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card__item {
+    &::before {
+      background-image: url('../img/check-blue.svg');
+    }
+  }
+
+  .card__btn {
+    background: #FF5562;
+    color: var(--clr-white);
+  }
+}
+.card__wrap {
+  position: relative;
+}
+.card__elem {
+  //
+}
+.card__name {
+  padding: 20px;
+  background-color: var(--clr-blue--white);
+  color: var(--clr-white);
+  text-transform: uppercase;
+  text-align: center;
+
+  @include phones {
+    padding: 15px;
+  }
+}
+.card__info {
+  padding: 25px 45px 65px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  color: var(--clr-white);
+
+  @include phones {
+    padding: 25px 40px 50px 25px;
+  }
+}
+.card__price {
+  @include mont(semibold);
+  font-size: 35px;
+  line-height: 43px;
+  text-align: center;
+  margin-bottom: 19px;
+
+  @include phones {
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 23px;
+  }
+}
+.card__list {
+  font-size: 14px;
+  line-height: 20px;
+
+  @include phones {
+    font-size: 12px;
+    line-height: 17px;
+  }
+}
+.card__item {
+  padding-left: 28px;
+  position: relative;
+
+  @include phones {
+    padding-left: 25px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    left: 0;
+    top: 5px;
+    background-image: url('../img/check-white.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include phones {
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.card__item + .card__item {
+  margin-top: 4px;
+}
+.card__bnt-wrap {
+  position: absolute;
+  bottom: -29px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @include phones {
+    bottom: -23px;
+  }
+}
+.card__btn {
+  max-width: 259px;
+  border: none;
+
+  @include phones
+    max-width: 205px;
+}

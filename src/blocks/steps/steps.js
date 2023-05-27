@@ -39,6 +39,7 @@ export default function steps() {
     console.log(parents);
 
     parents.forEach(parent => {
+
       let {heightParent, maxHeightParent} = getHeightCoords(parent, 'delimiter')
 
       console.log(heightParent, maxHeightParent);
@@ -50,6 +51,7 @@ export default function steps() {
       let moreBtn = more.querySelector('.more__btn');
 
     if (moreBtn) {
+
     moreBtn.addEventListener('click', function (e) {
       e.preventDefault();
 

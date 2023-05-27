@@ -31,7 +31,7 @@ export default function menu()
 
         if (menu.classList.contains('menu--opened')) {
               menu.classList.remove('menu--opened')
-              body.classList.remove('body--locked')
+              body.classList.remove('lock')
         }
       })
     })

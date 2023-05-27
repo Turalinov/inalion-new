@@ -1,10 +1,13 @@
 export default function solutions(){
   console.log('solutions');
 
-  const variants = document.querySelectorAll('.variant__item');
+  const solutions = document.querySelector('.solutions');
+
+
+  const variants = solutions.querySelectorAll('.variant__item');
 
   if (variants) {
-    const choises = document.querySelectorAll('.choise__item');
+    const choises = solutions.querySelectorAll('.choise__item');
 
 
     function deleteActiveClassVariants() {
