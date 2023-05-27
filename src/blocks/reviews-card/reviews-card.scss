@@ -1,0 +1,148 @@
+.reviews-card {
+  display: flex;
+  width: 100%;
+}
+
+.reviews__card__number {
+  font-size: 20px;
+  line-height: 24px;
+  margin-right: 79px;
+
+  @include tablets {
+    margin-right: 40px;
+  }
+
+  @include phones {
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 30px;
+  }
+}
+
+.reviews-card__content {
+  font-size: 20px;
+  line-height: 26px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @include phones {
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.reviews-card__text {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.reviews-card__text-elem {
+  @include mont(regularItalic);
+  flex: 1;
+  margin-bottom: 30px;
+
+  @include phones {
+    margin-bottom: 25px;
+  }
+}
+
+.reviews-card__text-elem p {
+  & + p {
+    margin-top: 33px;
+
+    @include phones {
+      margin-top: 20px;
+    }
+  }
+}
+
+
+.reviews-card__img-elem {
+
+}
+
+.reviews-card__links {
+  display: flex;
+  justify-content: space-between;
+
+  @include phones {
+    display: none;
+  }
+
+  &--mob {
+    display: none;
+    @include phones {
+      display: flex;
+    }
+  }
+}
+
+.reviews-card__company {
+  @include mont(medium);
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 10px;
+
+  @include phones {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.reviews-card__img {
+  height: max-content;
+  margin-left: 20px;
+  max-width: 320px;
+
+  @include phones {
+    max-width: 232px;
+    height: 89px;
+    margin-left: 0;
+    margin-bottom: 25px;
+  }
+}
+
+.reviews-card__img-elem {
+  @include phones {
+
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.reviews-card__company span {
+  padding: 0 8px;
+}
+
+.reviews-card__company  .reviews-card__linkedin {
+  text-decoration: underline;
+  padding-left:  33px;
+  position: relative;
+
+  @include phones {
+    font-size: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 0;
+    top: 0;
+    background-image: url('../img/linkedin.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include phones {
+      top: initial;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

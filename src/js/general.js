@@ -13,6 +13,8 @@ import steps from '%modules%/steps/steps';
 import animItems from '%modules%/anim-items/anim-items';
 //price
 import price from '%modules%/price/price';
+//reviews-slider
+import reviewsSlider from '%modules%/reviews-slider/reviews-slider';
 
 
 
@@ -25,3 +27,4 @@ animation();
 steps();
 animItems();
 price();
+reviewsSlider();

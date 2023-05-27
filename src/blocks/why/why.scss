@@ -89,27 +89,3 @@
   //
 }
 
-.why__link {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 16px;
-}
-
-.why__link span {
-  display: block;
-  margin-right: 15px;
-  @include mont(semibold);
-  font-size: 14px;
-  line-height: 16px;
-  color: var(--clr-blue);
-
-  @include phones {
-    font-size: 12px;
-    line-height: 16px;
-  }
-}
-
-.why__link svg {
-  width: 25px;
-  height: 12px;
-}

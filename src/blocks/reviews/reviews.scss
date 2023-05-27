@@ -1,0 +1,22 @@
+.reviews {
+  padding: 120px 0 90px;
+
+  @include phones {
+    padding: 65px 0 75px;
+  }
+}
+
+.reviews__title-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 65px;
+
+  @include phones {
+    margin-bottom: 50px;
+  }
+}
+
+.reviews__title {
+  //
+}
